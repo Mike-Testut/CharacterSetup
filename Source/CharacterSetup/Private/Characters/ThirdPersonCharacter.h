@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "ThirdPersonCharacter.generated.h"
 
+class UCameraComponent;
+class USpringArmComponent;
+
 UCLASS()
 class AThirdPersonCharacter : public ACharacter
 {
@@ -14,6 +17,13 @@ class AThirdPersonCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AThirdPersonCharacter();
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character", meta=(AllowPrivateAccess="true"))
+	TObjectPtr<USpringArmComponent> CameraBoom;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character", meta=(AllowPrivateAccess="true"))
+	TObjectPtr<UCameraComponent> FollowCamera;
+
 
 protected:
 	// Called when the game starts or when spawned
