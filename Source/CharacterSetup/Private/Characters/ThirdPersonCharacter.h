@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "InputActionValue.h"
+
 #include "ThirdPersonCharacter.generated.h"
 
 class UCameraComponent;
@@ -39,6 +41,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Input")
 	TObjectPtr<UInputAction> LookAction;
 
+	void Move(const FInputActionValue& Value);
+
+	void Look(const FInputActionValue& Value);
 
 public:	
 	// Called every frame
