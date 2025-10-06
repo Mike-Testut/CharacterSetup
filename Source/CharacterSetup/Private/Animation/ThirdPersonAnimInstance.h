@@ -23,7 +23,10 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	AThirdPersonCharacter* ThirdPersonCharacter;
 
-	UPROPERTY()
-	UCharacterMovementComponent* 
+	UPROPERTY(BlueprintReadOnly, Category = Movement)
+	UCharacterMovementComponent* ThirdPersonMoveComponent;
+
+	UPROPERTY(BlueprintReadOnly, Category = Movement)
+	float GroundSpeed;
 	
 };
