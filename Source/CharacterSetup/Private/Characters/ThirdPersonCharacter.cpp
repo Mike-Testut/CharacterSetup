@@ -78,6 +78,16 @@ void AThirdPersonCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
+void AThirdPersonCharacter::StartSprint(const FInputActionValue& Value)
+{
+	GetCharacterMovement()->MaxWalkSpeed=600.f;
+}
+
+void AThirdPersonCharacter::EndSprint(const FInputActionValue& Value)
+{
+	GetCharacterMovement()->MaxWalkSpeed=400.f;
+}
+
 // Called every frame
 void AThirdPersonCharacter::Tick(float DeltaTime)
 {
@@ -94,6 +104,9 @@ void AThirdPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	{
 		EnhancedInputComponent->BindAction(MoveAction,ETriggerEvent::Triggered,this, &AThirdPersonCharacter::Move);
 		EnhancedInputComponent->BindAction(LookAction,ETriggerEvent::Triggered,this, &AThirdPersonCharacter::Look);
+		EnhancedInputComponent->BindAction(SprintAction,ETriggerEvent::Triggered,this, &AThirdPersonCharacter::StartSprint);
+		EnhancedInputComponent->BindAction(SprintAction,ETriggerEvent::Completed,this, &AThirdPersonCharacter::EndSprint);
+		
 	}
 
 }

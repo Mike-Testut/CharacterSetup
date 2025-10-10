@@ -41,9 +41,16 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Input")
 	TObjectPtr<UInputAction> LookAction;
 
+	UPROPERTY(EditAnywhere, Category="Input")
+	TObjectPtr<UInputAction> SprintAction;
+
 	void Move(const FInputActionValue& Value);
 
 	void Look(const FInputActionValue& Value);
+
+	void StartSprint(const FInputActionValue& Value);
+
+	void EndSprint(const FInputActionValue& Value);
 
 public:	
 	// Called every frame
